@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: node-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rohitowal/k8s-declarative-approach-basics.git
+    targetRevision: main
+    path: .
+    directory:
+      include: '{deployment.yaml,service.yaml}'
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy: {}
+
