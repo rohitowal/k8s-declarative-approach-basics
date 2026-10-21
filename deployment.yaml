@@ -16,4 +16,5 @@ spec:
     spec: 
       containers:
         - name: node-app
-          image: node-app:1
+          image: owalrohit03/node-app:2
+          imagePullPolicy: Always
