@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: node-app
+      tier: backend
+  template:
+    metadata: 
+      labels:
+        app: node-app
+        tier: backend
+    spec: 
+      containers:
+        - name: node-app
+          image: node-app:1
